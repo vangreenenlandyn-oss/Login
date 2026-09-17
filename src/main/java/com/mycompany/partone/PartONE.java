@@ -3,25 +3,48 @@
  */
 
 package com.mycompany.partone;
+
 import java.util.regex.Pattern;
+import java.util.Scanner;
 
-/**
- * Login class to handle user registration, validation, and authentication.
- * 
- * Cell phone regex attribution:
- * The South African international cell phone format regex (+27 followed by 9 digits) 
- * is adapted from standard regex patterns for international MSISDN validation.
- * Reference: https://regex101.com / Standard E.164 South African format (+27XXXXXXXXX).
- */
-public class PartONE{
-
+public class PartONE {
+    
+    
+  
     private String registeredUsername;
     private String registeredPassword;
     private String registeredCellNumber;
     private String firstName;
     private String lastName;
+    
+public PartONE() {}
+   public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        PartONE app = new PartONE();
 
-    public PartONE() {}
+        System.out.println("=== USER REGISTRATION ===");
+        
+        System.out.print("Enter First Name: ");
+        String firstName = input.nextLine();
+        
+        System.out.print("Enter Last Name: ");
+        String lastName = input.nextLine();
+
+        System.out.print("Enter Username: ");
+        String username = input.nextLine();
+
+        System.out.print("Enter Password: ");
+        String password = input.nextLine();
+
+        System.out.print("Enter Cell Phone Number: ");
+        String cellNumber = input.nextLine();
+
+        // Call your registration method
+        String registrationMessage = app.registerUser(username, password, cellNumber);
+        System.out.println(registrationMessage);
+    } 
+
+    
 
     public PartONE(String firstName, String lastName) {
         this.firstName = firstName;
