@@ -73,14 +73,12 @@ public class PartONE{
      */
     public boolean checkCellPhoneNumber(String cellNumber) {
         if (cellNumber == null) return false;
-        // South African international format regex: Starts with +27 followed by 9 digits
+        
         String regex = "^\\+27[0-9]{9}$";
         return Pattern.matches(regex, cellNumber);
     }
 
-    /**
-     * Registers user and returns status messages based on formatting checks.
-     */
+   
     public String registerUser(String username, String password, String cellNumber) {
         if (!checkUserName(username)) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
