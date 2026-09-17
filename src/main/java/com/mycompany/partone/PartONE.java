@@ -39,7 +39,7 @@ public PartONE() {}
         System.out.print("Enter Cell Phone Number: ");
         String cellNumber = input.nextLine();
 
-        // Call your registration method
+        
         String registrationMessage = app.registerUser(username, password, cellNumber);
         System.out.println(registrationMessage);
     } 
@@ -68,17 +68,13 @@ public PartONE() {}
         this.lastName = lastName;
     }
 
-    /**
-     * Checks if username contains an underscore and is no more than 5 characters long.
-     */
+    
     public boolean checkUserName(String username) {
         if (username == null) return false;
         return username.contains("_") && username.length() <= 5;
     }
 
-    /**
-     * Checks if password contains at least 8 characters, a capital letter, a number, and a special character.
-     */
+    
     public boolean checkPasswordComplexity(String password) {
         if (password == null) return false;
 
@@ -120,9 +116,7 @@ public PartONE() {}
         return "Username successfully captured.\nPassword successfully captured.\nCell number successfully captured.";
     }
 
-    /**
-     * Verifies if entered credentials match registered details.
-     */
+    
     public boolean loginUser(String enteredUsername, String enteredPassword) {
         if (registeredUsername == null || registeredPassword == null) {
             return false;
