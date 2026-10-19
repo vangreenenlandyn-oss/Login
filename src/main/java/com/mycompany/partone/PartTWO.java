@@ -63,22 +63,22 @@ public class PartTWO {
             if (recipient == null) break;
 
             boolean cellCheck = msgHandler.checkRecipientCell(recipient);
-            if (!cellCheck.equals("Cell phone number successfully captured.")) {
-                JOptionPane.showMessageDialog(null, cellCheck, "Recipient Error", JOptionPane.ERROR_MESSAGE);
-                i--; // Retry current message iteration
-                continue;
-            }
+             if (!cellCheck) {
+             JOptionPane.showMessageDialog(null, "Cell phone number is incorrectly formatted or does not contain an international code.", "Error", JOptionPane.ERROR_MESSAGE);
+            i--; // Retry current message iteration
+            continue;
+}
 
             // Get Message Body
             String messageText = JOptionPane.showInputDialog(null, "Enter your message (max 250 characters):", "Message Text", JOptionPane.QUESTION_MESSAGE);
             if (messageText == null) break;
 
             boolean lengthCheck = msgHandler.checkMessageLength(messageText);
-            if (!lengthCheck.equals("Message ready to send.")) {
-                JOptionPane.showMessageDialog(null, lengthCheck, "Message Error", JOptionPane.ERROR_MESSAGE);
-                i--; // Retry current message iteration
-                continue;
-            }
+            if (!lengthCheck) {
+            JOptionPane.showMessageDialog(null, "Please enter a message of less than 250 characters.", "Error", JOptionPane.ERROR_MESSAGE);
+            i--; // Retry current message iteration
+            continue;
+}
 
             
             Message currentMsg = new Message(i, recipient, messageText);
